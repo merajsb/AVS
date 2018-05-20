@@ -1,7 +1,6 @@
 __kernel void sieveofAktin(const int limit, __global bool* sieve)
 {
     int x = get_global_id(0);
-    int y = get_global_id(1);
     for (int y = 1; y * y < limit; y++) {
         int n = (4 * x * x) + (y * y);
         if (n <= limit && (n % 12 == 1 || n % 12 == 5))
