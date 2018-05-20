@@ -67,7 +67,6 @@ void computeDftCL(vector<double> &outreal, vector<double> &outimag, bool runOnGP
             //Double precision check, source: https://gist.github.com/ddemidov/2925717
             for(auto p = platform.begin(); device.empty() && p != platform.end(); p++) {
                 std::vector<cl::Device> pldev;
-
                 try {
                     p->getDevices(CL_DEVICE_TYPE_GPU, &pldev);
 
@@ -82,7 +81,6 @@ void computeDftCL(vector<double> &outreal, vector<double> &outimag, bool runOnGP
                                 ) continue;
 
                         device.push_back(*d);
-                        context = cl::Context(device);
                     }
                 } catch(...) {
                     device.clear();
@@ -97,7 +95,7 @@ void computeDftCL(vector<double> &outreal, vector<double> &outimag, bool runOnGP
         context = cl::Context(device[0]);
         // Creating command queue with event profiling enabled
         cl::CommandQueue queue(context, device[0], CL_QUEUE_PROFILING_ENABLE);
-        //Getting the kernel as string, if it did not work, please inpu the full path of kernel
+        //Getting the kernel as string, if it did not work, please input the full path of kernel
         ifstream ifs("dftKernel.cl");
         string content( (std::istreambuf_iterator<char>(ifs)),
                              (std::istreambuf_iterator<char>() ) );
@@ -191,7 +189,7 @@ void computeDft(vector<double> &outreal, vector<double> &outimag) {
 }
 int main(){
     //OpenCL implmentation
-    computeDftCL(vecOutReal, vecOutImag, false);
+    computeDftCL(vecOutReal, vecOutImag, true);
     //Getting the duration of the non parallelized DFT
     high_resolution_clock::time_point t3 = high_resolution_clock::now();
     computeDft(vecOutRealNormal, vecOutImagNormal);
