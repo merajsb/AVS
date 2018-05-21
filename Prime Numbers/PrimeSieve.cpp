@@ -25,7 +25,6 @@ int sieve()
     if (limit > 3){
         //std::cout << 3 << " ";
     }
-
     // Initialise the sieve array with false values
     bool sieve[limit];
     for (int i = 0; i < limit; i++)
