@@ -1,3 +1,4 @@
+package avs.gaus;
 /*
 * Incomplete implementation of Gaussian Blur in OpenCL via JoCL binder
  */
@@ -74,6 +75,7 @@ public class GaussianCL extends ConvolveFilter {
 
          //int[] outPixels = convolveAndTranspose(width, height, inPixels);
         convolveAndTranspose(kernel, outPixels, inPixels, width, height);
+        //convolveAndTranspose(kernel, inPixels,outPixels , width, height);
 
         dst.setRGB( 0, 0, width, height, outPixels, 0, width );
         return dst;

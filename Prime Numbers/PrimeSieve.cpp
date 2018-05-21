@@ -3,6 +3,7 @@
  * The original code is from:
  * https://www.geeksforgeeks.org/sieve-of-atkin/
  * Printing is commented out, the OpenCL implementation is not faster than the normal one.
+ * @author: Merajuddin Sobhani
  */
 #include <iostream>
 #include <vector>

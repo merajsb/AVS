@@ -1,6 +1,7 @@
 /*
  * This is OpenCL implementation of DFT without complex numbers, the original C++ implementation code is from:
  * https://www.nayuki.io/res/how-to-implement-the-discrete-fourier-transform/Dft.cpp
+ * @author: Merajuddin Sobhani
  */
 #include <cmath>
 #include <vector>
