@@ -15,7 +15,6 @@
 #include <CL/cl.hpp>
 using namespace std::chrono;
 using namespace std;
-
 //number of elements
 const int num = 7000;
 //double vectors for two implementations
@@ -46,7 +45,6 @@ vector<double> vecInimaginary = randomDouble(num);
  * @param: outimage: Vector of ddouble to store the imaginary part of complex number
  * @param: runOnGPU: if set true, the program runs on the second platform and selects first GPU device,
  * if set false the program runs on the first platform and first CPU device.
- *
  */
 void computeDftCL(vector<double> &outreal, vector<double> &outimag, bool runOnGPU = true) {
 
@@ -134,7 +132,7 @@ void computeDftCL(vector<double> &outreal, vector<double> &outimag, bool runOnGP
         kern.setArg(3, outImagBuffer);
         kern.setArg(4, num);
 
-        //Creating event for profiling
+        //Creating event for profiling (getting commands execution time)
         cl::Event event;
         cl::Event eventBuf1;
         cl::Event eventBuf2;
